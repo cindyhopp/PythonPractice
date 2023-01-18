@@ -7,10 +7,11 @@ Files include:
 * filter.py: module with command line program that assesses whether points from the location.csv or geolocation.csv are contained in the bounding boxes specified in bounds.csv
 
 The following files were provided by the instructor:
-* bounds.csv: a CSV file containing four bounding boxes
-* bounds.prj: 
-* geolocation.csv
-* geolocation.prj
-* location.csv
-* location.prj
-* bbox_test.py: this was used to test and validate the BoundingBox class from bbox.py
+* bounds.csv: contains four bounding boxes
+* bounds.prj: contains the CRS of the bounding boxes encoded in WKT
+* geolocation.csv: contains coordinates
+* geolocation.prj: contains CRS of the geolocation.csv encoded in WKT
+* location.csv: contains coordinates
+* location.prj: contains CRS of the location.csv encoded in WKT
+* bbox_test.py: test case for the BoundingBox class from bbox.py
+* source-data.pgkg: GeoPackage dataset containing the points and bounding boxes, for visual aid
