@@ -39,7 +39,7 @@ bbox_file = 'D:\\PROG5000\\Python\\Assignment3\\bounds.csv'
 # ensure the bounding box identifier exists in the bounding box file
 try:
     # retrieve the parameters for the bounding box based on bbox_id
-    parameter = bbox.BoundingBox.from_file(bbox_file, args.bbox_id)
+    bounding_box = bbox.BoundingBox.from_file(bbox_file, args.bbox_id)
 
     # retrieve the CRS file corresponding to the points file
     name = os.path.splitext(args.filename)[0]
@@ -53,7 +53,7 @@ try:
             point_crs = pyproj.CRS.from_wkt(point_crs_wkt)
 
         # apply CRS transformation by calling transform_to() function
-        bbox.BoundingBox.transform_to(parameter, point_crs)
+        bounding_box.transform_to(point_crs)
 
         # read the points file and determine whether the points are 
         # inside of the bounding box using the contains() function
@@ -63,7 +63,7 @@ try:
                 x = float(i[0])
                 y = float(i[1])
                 point_name = i[2]
-                if bbox.BoundingBox.contains(parameter,x,y) is True:
+                if bounding_box.contains(parameter,x,y) is True:
                     print(f'Bounding box {args.bbox_id} contains {point_name}')
                 else:
                     pass
